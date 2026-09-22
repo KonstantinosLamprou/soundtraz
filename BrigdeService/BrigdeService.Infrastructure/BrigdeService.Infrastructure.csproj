@@ -1,7 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿ <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <ProjectReference Include="..\BrigdeService.Application\BrigdeService.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CmdScale.EntityFrameworkCore.TimescaleDB" Version="10.3.0" />
+    <PackageReference Include="CmdScale.EntityFrameworkCore.TimescaleDB.Design" Version="10.3.0" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  bridge-service:
+    build:
+      context: ./BridgeService
+      dockerfile: BridgeService.Api/Dockerfile
+    ports:
+      - "8080:80"
+    env_file:
+      - ./BridgeService/.env
+    depends_on:
+      - timescale-db
+
+  ingest-service:
+    build:
+      context: ./IngestService
+      dockerfile: IngestService.Api/Dockerfile
+    ports:
+      - "8081:80"
+    env_file:
+      - ./IngestService/.env
+    depends_on:
+      - timescale-db
+
+  timescale-db:
+    image: timescale/timescaledb:latest-pg15
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      # POSTGRES_DB wird hier weggelassen, da init.sql die DBs erstellt
+    ports:
+      - "5432:5432"
+    volumes:
+      - timescale_data:/var/lib/postgresql/data
+      # Hier wird das SQL-Skript in den Container gemountet:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  timescale_data:
