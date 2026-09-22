@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="BrigdeService.Api/BrigdeService.Api.csproj" />
+  <Project Path="BrigdeService.Application/BrigdeService.Application.csproj" />
+  <Project Path="BrigdeService.Domain/BrigdeService.Domain.csproj" />
+  <Project Path="BrigdeService.Infrastructure/BrigdeService.Infrastructure.csproj" />
+</Solution>
