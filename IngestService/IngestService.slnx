@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="IngestService.Api/IngestService.Api.csproj" />
+  <Project Path="IngestService.Application/IngestService.Application.csproj" />
+  <Project Path="IngestService.Domain/IngestService.Domain.csproj" />
+  <Project Path="IngestService.Infrastructure/IngestService.Infrastructure.csproj" />
+</Solution>
